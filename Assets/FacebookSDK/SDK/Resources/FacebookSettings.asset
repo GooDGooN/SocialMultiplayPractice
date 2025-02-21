@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - ddab0bc171efcb2ec8b68643b79aa95b
   appIds:
-  - 10084546513339441008454651333944
+  - 1008454651333944
   appLabels:
   - SocialMultiplayPractice
   cookie: 1

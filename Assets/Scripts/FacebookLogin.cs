@@ -1,6 +1,5 @@
 using UnityEngine;
 using Facebook.Unity;
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 public class FacebookLogin : MonoBehaviour
@@ -16,6 +15,7 @@ public class FacebookLogin : MonoBehaviour
         else
         {
             FB.Init(InitCallback, OnHideUnity);
+
             void InitCallback()
             {
                 if (FB.IsInitialized)
@@ -45,7 +45,7 @@ public class FacebookLogin : MonoBehaviour
 
     public void LoginButtonClick()
     {
-        List<string> permissions = new () { "public_profiles", "email" };
+        List<string> permissions = new () { "public_profile", "email" };
         SendStatusMessage("button clicked");
         FB.LogInWithReadPermissions(permissions, (ILoginResult result) =>
         {
