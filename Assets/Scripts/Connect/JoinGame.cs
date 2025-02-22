@@ -47,8 +47,8 @@ public class JoinGame : MonoBehaviourPunCallbacks
         var randomY = Random.Range(-9.0f, 9.0f);
         var pos = new Vector3(randomX, 1.0f, randomY);
 
-        var playerobj = PhotonNetwork.InstantiateRoomObject("Player", pos, Quaternion.identity);
-        var playerui = PhotonNetwork.InstantiateRoomObject("PlayerID", Vector3.zero, Quaternion.identity);
+        var playerobj = PhotonNetwork.Instantiate("Player", pos, Quaternion.identity);
+        var playerui = PhotonNetwork.Instantiate("PlayerID", Vector3.zero, Quaternion.identity);
         playerui.GetComponent<PlayerID>().SetUI(playerui, $"ID[{AccessToken.CurrentAccessToken.UserId}]");
         playerui.transform.parent = IDUIContainer.transform;
     }

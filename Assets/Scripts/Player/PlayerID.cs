@@ -1,11 +1,13 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerID : MonoBehaviour
+public class PlayerID : MonoBehaviourPun
 {
     private GameObject myPlayer;
+    private PhotonView pv { get => GetComponent<PhotonView>(); }
     public TMP_Text Text { get => GetComponent<TMP_Text>(); }
 
     public void SetUI(GameObject target, string id)
@@ -14,10 +16,11 @@ public class PlayerID : MonoBehaviour
         Text.text = id;
     }
 
-    private void Start()
+    private void Update()
     {
-
-        transform.position = Camera.main.WorldToScreenPoint(myPlayer.transform.position);
+        if(pv.IsMine)
+        {
+            transform.position = Camera.main.WorldToScreenPoint(myPlayer.transform.position);
+        }
     }
-
 }
