@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "762525827410",
+    "project_id": "socialmultiplaypractice",
+    "storage_bucket": "socialmultiplaypractice.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762525827410:android:6cfe4dc2f006ca9d683a8b",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.SocialMultiplayPractice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCosGqZkXk3BVaBD56ORhkFIkkY-Ey7R-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

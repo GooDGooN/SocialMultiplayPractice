@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Init.unity
+    guid: c04edb3b65d7a3b458ee39014922ebcc
+  - enabled: 1
     path: Assets/Scenes/FacebookLogin.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: d1473cf481cfea64f882128301fb89b7
   m_configObjects: {}

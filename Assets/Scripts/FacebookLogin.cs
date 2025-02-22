@@ -2,15 +2,15 @@ using UnityEngine;
 using Facebook.Unity;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class FacebookLogin : MonoBehaviour
 {
-    public TMP_Text StatusText;
     private void Awake()
     {
         if(FB.IsInitialized)
         {
             FB.ActivateApp();
-            SendStatusMessage("ActiveApp");
+            StatusMessage.Instance.SendStatusMessage("ActiveApp");
         }
         else
         {
@@ -21,11 +21,11 @@ public class FacebookLogin : MonoBehaviour
                 if (FB.IsInitialized)
                 {
                     FB.ActivateApp();
-                    SendStatusMessage("Facebook SDK initialize successed");
+                    StatusMessage.Instance.SendStatusMessage("Facebook SDK initialize successed");
                 }
                 else
                 {
-                    SendStatusMessage("Facebook SDK initialize failed");
+                    StatusMessage.Instance.SendStatusMessage("Facebook SDK initialize failed");
                 }
             }
 
@@ -46,24 +46,21 @@ public class FacebookLogin : MonoBehaviour
     public void LoginButtonClick()
     {
         List<string> permissions = new () { "public_profile", "email" };
-        SendStatusMessage("button clicked");
+        StatusMessage.Instance.SendStatusMessage("button clicked");
         FB.LogInWithReadPermissions(permissions, (ILoginResult result) =>
         {
             if (FB.IsLoggedIn)
             {
                 var accessToken = AccessToken.CurrentAccessToken;
-                SendStatusMessage($"user id : {accessToken.UserId}");
+                GlobalInfos.FacebookUserToken = accessToken;
+                StatusMessage.Instance.SendStatusMessage($"user id : {accessToken.UserId}");
+                SceneManager.LoadScene(2);
             }
             else
             {
-                SendStatusMessage("Login canceled");
+                StatusMessage.Instance.SendStatusMessage("Login canceled");
             }
         });
 
-    }
-
-    public void SendStatusMessage(string message)
-    {
-        StatusText.text = message;
     }
 }
