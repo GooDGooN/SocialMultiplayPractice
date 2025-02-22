@@ -13,7 +13,7 @@ public class ShowConsoleLog : MonoBehaviour
 
     private void LogHandler(string logString, string stackTrace, LogType logType)
     {
-        logMessages.Enqueue("[" + logType.ToString().ToUpper() + "] " + logString);
+        logMessages.Enqueue("[" + logType.ToString() + "] " + logString);
         while (logMessages.Count > 3)
         {
             logMessages.Dequeue();
