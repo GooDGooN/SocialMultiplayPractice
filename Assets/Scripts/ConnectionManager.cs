@@ -7,7 +7,6 @@ using TMPro;
 
 public class ConnectionManager : MonoBehaviourPunCallbacks
 {
-    public TMP_Text Status;
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -17,13 +16,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-
-    }
-
-    public override void OnConnected()
-    {
-        base.OnConnected();
-        Status.text = "Connected";
-
+        base.OnConnectedToMaster();
+        StatusMessage.Instance.SendStatusMessage("Master Server Connected");
     }
 }

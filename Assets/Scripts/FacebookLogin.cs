@@ -52,7 +52,6 @@ public class FacebookLogin : MonoBehaviour
             if (FB.IsLoggedIn)
             {
                 var accessToken = AccessToken.CurrentAccessToken;
-                GlobalInfos.Instance.InitializeFacebookInfo(accessToken);
                 StatusMessage.Instance.SendStatusMessage($"user id : {accessToken.UserId}");
                 SceneManager.LoadScene(2);
             }

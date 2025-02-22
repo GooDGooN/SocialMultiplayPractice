@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MessageLogs : MonoBehaviour
+public class ShowConsoleLog : MonoBehaviour
 {
     public TMP_Text ErrorText;
     private Queue<string> logMessages = new();
