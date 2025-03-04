@@ -30,9 +30,12 @@ public class MasterServer : MonoBehaviourPunCallbacks
 
     public void EnterToLobby()
     {
-        PhotonNetwork.NickName = FacebookUserInfo.GetFacebookID();
-        var isjoined = PhotonNetwork.JoinLobby();
-        Debug.Log(isjoined);
+        if(PhotonNetwork.IsConnectedAndReady)
+        {
+            PhotonNetwork.NickName = FacebookUserInfo.GetFacebookID();
+            var isjoined = PhotonNetwork.JoinLobby();
+            Debug.Log(isjoined);
+        }
     }
 
 
