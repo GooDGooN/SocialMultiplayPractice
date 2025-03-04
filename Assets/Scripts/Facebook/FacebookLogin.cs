@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class FacebookLogin : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         if(FB.IsInitialized)
         {
@@ -45,7 +45,7 @@ public class FacebookLogin : MonoBehaviour
 
     public void LoginButtonClick()
     {
-        List<string> permissions = new () { "public_profile", "email" };
+        List<string> permissions = new() { "public_profile" };
         StatusMessage.Instance.SendStatusMessage("button clicked");
         FB.LogInWithReadPermissions(permissions, (ILoginResult result) =>
         {
@@ -58,6 +58,7 @@ public class FacebookLogin : MonoBehaviour
             else
             {
                 StatusMessage.Instance.SendStatusMessage("Login canceled");
+                StatusMessage.Instance.SendStatusMessage($"{result.Error}");
             }
         });
 
