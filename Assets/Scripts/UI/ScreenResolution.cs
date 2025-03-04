@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScreenResolution : MonoBehaviour
 {
-    private int targetWidth = 640;
+    private int targetWidth = 1280;
 
     private void Awake()
     {
