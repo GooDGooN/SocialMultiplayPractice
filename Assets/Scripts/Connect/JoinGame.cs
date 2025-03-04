@@ -8,7 +8,6 @@ using UnityEngine;
 public class JoinGame : MonoBehaviourPunCallbacks
 {
     public GameObject PlayerPrefab;
-    public GameObject IDUIContainer;
     private void Start()
     {
         StartCoroutine(JoiningRoom());
@@ -48,9 +47,6 @@ public class JoinGame : MonoBehaviourPunCallbacks
         var pos = new Vector3(randomX, 1.0f, randomY);
 
         var playerobj = PhotonNetwork.Instantiate("Player", pos, Quaternion.identity);
-        var playerui = PhotonNetwork.Instantiate("PlayerID", Vector3.zero, Quaternion.identity);
-        playerui.GetComponent<PlayerID>().SetUI(playerui, $"ID[{AccessToken.CurrentAccessToken.UserId}]");
-        playerui.transform.parent = IDUIContainer.transform;
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

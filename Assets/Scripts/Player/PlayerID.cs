@@ -16,11 +16,11 @@ public class PlayerID : MonoBehaviourPun
         Text.text = id;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if(pv.IsMine)
         {
-            transform.position = Camera.main.WorldToScreenPoint(myPlayer.transform.position);
+            transform.position = Camera.main.WorldToScreenPoint(myPlayer.transform.position + Vector3.up * 2.0f);
         }
     }
 }

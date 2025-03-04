@@ -303,7 +303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 0}
-  IDUIContainer: {fileID: 98628522}
 --- !u!1 &553223856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287e56a6ca96af448bd4d556dfdd7303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IDContainer: {fileID: 98628522}
 --- !u!1 &1979561568
 GameObject:
   m_ObjectHideFlags: 0

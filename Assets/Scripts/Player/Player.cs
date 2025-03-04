@@ -1,3 +1,4 @@
+using Facebook.Unity;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,13 @@ public class Player : MonoBehaviourPun
 {
     private float moveSpeed = 0.1f;
     private PhotonView pv { get => GetComponent<PhotonView>(); }
+
+    private void Start()
+    {
+        var playerui = PhotonNetwork.Instantiate("PlayerID", Vector3.zero, Quaternion.identity);
+        playerui.transform.parent = GameManager.Instance.IDContainer.transform;
+        playerui.GetComponent<PlayerID>().SetUI(gameObject, AccessToken.CurrentAccessToken.UserId);
+    }
 
     private void Update()
     {
