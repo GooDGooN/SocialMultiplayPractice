@@ -5,22 +5,33 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPun
 {
-    private Vector3 toPosition;
+    private float moveSpeed = 0.05f;
     private PhotonView pv { get => GetComponent<PhotonView>(); }
 
     private void Update()
     {
         if(pv.IsMine)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out var hit, 1000.0f))
-                {
-                    var pos = hit.point;
-                    transform.position = new Vector3(pos.x, 1.0f, pos.z);
-                }
-            }
+            UpdateMovement();
         }
+    }
+
+    private void LateUpdate()
+    {
+        if (pv.IsMine)
+        {
+            UpdateCamera();
+        }
+    }
+
+    private void UpdateMovement()
+    {
+        var contoller = UIManager.Instance.MoveController;
+        transform.position += new Vector3(contoller.Value.x, 0.0f, contoller.Value.y) * moveSpeed;
+    }
+
+    private void UpdateCamera()
+    {
+        Camera.main.transform.position = new Vector3(transform.position.x, 10.0f, transform.position.z - 6.0f);
     }
 }
